@@ -40,6 +40,7 @@ const [filters, applyFitlers] = useState({minPrice: 9, maxPrice: 12});
              console.log(err.message);
           });
     }, [filters]);
+    
   return (
     <>
         <div style={styles.produtListSuperContainer}>
