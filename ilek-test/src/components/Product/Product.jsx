@@ -71,7 +71,7 @@ export  const Product = ( { product }) => {
                 }
             />
         </ListItem>
-    < Divider variant="inset" component="li" />
+        <Divider variant="inset" component="li" />
   </>
   );
 }

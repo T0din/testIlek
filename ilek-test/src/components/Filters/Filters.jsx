@@ -7,7 +7,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-import {Title} from "../Title/Title";
+import { Title } from "../Title/Title";
 
 const styles= {
     subContainer:{
