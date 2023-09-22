@@ -1,9 +1,10 @@
 
 import { useState, useEffect } from 'react';
 
-import ImageList from '@mui/material/ImageList';
+import List from '@mui/material/List';
 
 import {Product} from "../Product/Product";
+import {Filters} from "../Filters/Filters";
 
 const styles = {
     produtListSuperContainer:{
@@ -18,12 +19,12 @@ const styles = {
     }
 }
 
-
 export const ProductList = ( ) => {
+const [filters, applyFitlers] = useState({minPrice: 9, maxPrice: 12});
 
     const [products, setProducts] = useState([]);
     useEffect(() => {
-       fetch('http://0.0.0.0:5005/wines?sort=best_average_rating')
+       fetch(`http://0.0.0.0:5005/wines?sort=best_average_rating&min_price=${filters.minPrice}&max_price=${filters.maxPrice}`)
           .then((response) => response.json())
           .then((data) => {
              console.log(data);
@@ -32,16 +33,19 @@ export const ProductList = ( ) => {
           .catch((err) => {
              console.log(err.message);
           });
-    }, []);
+    }, [filters]);
   return (
+    <>
     <div style={styles.produtListSuperContainer}>
         <div style={styles.container}>
-            <ImageList cols={3} gap={8}>
+            <Filters applyFitlers={applyFitlers} /> 
+            <List sx={{ width: '100%', maxWidth: 800, bgcolor: 'background.paper' }}>
                 {products.map((item) => (
                     <Product key={item.id} product={item} />
-                ))}
-            </ImageList>
+                    ))}
+            </List>
         </div>
     </div>
+</>
   );
 }

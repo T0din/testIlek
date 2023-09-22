@@ -1,25 +1,77 @@
 import * as React from 'react';
 
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-
-import vin1 from '../../assets/vin1.jpg'
+import ListItem from '@mui/material/ListItem';
+import Divider from '@mui/material/Divider';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 
 
 export  const Product = ( { product }) => {
   return (
-    <ImageListItem key={product.id}>
-    <img
-      srcSet={`${vin1}?w=248&fit=crop&auto=format&dpr=2 2x`}
-      src={`${vin1}?w=248&fit=crop&auto=format`}
-      alt={product.title}
-      loading="lazy"
-    />
-    <ImageListItemBar
-      title={product.title}
-      subtitle={<span>by: {product.author}</span>}
-      position="below"
-    />
-  </ImageListItem>
+    <>
+        <ListItem alignItems="flex-start">
+            <ListItemText
+            primary={product.name}
+            secondary={
+                <React.Fragment>
+                    <Typography
+                        sx={{ display: 'inline' }}
+                        component="span"
+                        variant="body2"
+                        color="text.primary"
+                    >
+                        {product.appellation}
+                    </Typography>
+                </React.Fragment>
+                }
+            />
+               <ListItemText
+            primary={product.vintage}
+            secondary={
+                <React.Fragment>
+                    <Typography
+                        sx={{ display: 'inline' }}
+                        component="span"
+                        variant="body2"
+                        color="text.primary"
+                    >
+                        {product.type}
+                    </Typography>
+                </React.Fragment>
+                }
+            />
+               <ListItemText
+            primary={'Price'}
+            secondary={
+                <React.Fragment>
+                    <Typography
+                        sx={{ display: 'inline' }}
+                        component="span"
+                        variant="body2"
+                        color="text.primary"
+                    >
+                        {`${product.price}€`}
+                    </Typography>
+                </React.Fragment>
+                }
+            />
+               <ListItemText
+            primary={'Average rating'}
+            secondary={
+                <React.Fragment>
+                    <Typography
+                        sx={{ display: 'inline' }}
+                        component="span"
+                        variant="body2"
+                        color="text.primary"
+                    >
+                        {`${product.average_rating} / 100`}
+                    </Typography>
+                </React.Fragment>
+                }
+            />
+        </ListItem>
+    < Divider variant="inset" component="li" />
+  </>
   );
 }
