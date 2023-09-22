@@ -7,14 +7,35 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
+import {Title} from "../Title/Title";
+
+const styles= {
+    subContainer:{
+        display: 'flex',
+    },
+    container: {
+        marginLeft: '6px'
+    },
+    buttonContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        height:'72px' 
+    },
+    button: {
+        height: '55px',
+    }
+}
+
+
 export const Filters = ({ applyFitlers }) => {
     const [minPrice, setMinPrice] = useState(9);
     const [maxPrice, setMaxPrice] = useState(12);
  
     return(
-    <>
-        <Box sx={{ display: 'flex' }}>
-            <div style={{ display: 'flex', alignContent:'center' }}>
+    <div style={styles.container}>
+        <Title title={'Filters'} />
+        <Box sx={styles.subContainer}>
+            <div style={styles.subContainer}>
                 <FormControl fullWidth sx={{ m: 1 }}>
                     <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
                     <OutlinedInput
@@ -34,8 +55,9 @@ export const Filters = ({ applyFitlers }) => {
                     />
                 </FormControl>
             </div>
+            <div style={styles.buttonContainer}>
                 <Button 
-                style={{ height: '55px'}}
+                style={styles.button}
                     onClick={(e)=>{
                         e.preventDefault();
                         applyFitlers({minPrice, maxPrice});
@@ -44,7 +66,8 @@ export const Filters = ({ applyFitlers }) => {
                     >
                     OK
                 </Button>
+            </div>
       </Box>
-    </>
+    </div>
     )
 }
