@@ -6,8 +6,7 @@ import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
-
-import { Title } from "../Title/Title";
+import Typography from '@mui/material/Typography';
 
 const styles= {
     subContainer:{
@@ -33,7 +32,8 @@ export const Filters = ({ applyFitlers }) => {
  
     return(
     <div style={styles.container}>
-        <Title title={'Filters'} />
+        <Typography variant="h4" sx={{   marginLeft: '7px',
+    marginBottom: '7px' }}>{'Filters'}</Typography>
         <Box sx={styles.subContainer}>
             <div style={styles.subContainer}>
                 <FormControl fullWidth sx={{ m: 1 }}>
@@ -43,6 +43,7 @@ export const Filters = ({ applyFitlers }) => {
                     startAdornment={<InputAdornment position="start">$</InputAdornment>}
                     label="Amount"
                     onChange={e => setMinPrice(e.target.value)}
+                    defaultValue={minPrice}
                     />
                 </FormControl>
                 <FormControl fullWidth sx={{ m: 1 }}>
@@ -52,6 +53,7 @@ export const Filters = ({ applyFitlers }) => {
                     startAdornment={<InputAdornment position="start">$</InputAdornment>}
                     label="Amount"
                     onChange={e => setMaxPrice(e.target.value)}
+                    defaultValue={maxPrice}
                     />
                 </FormControl>
             </div>

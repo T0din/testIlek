@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 
 import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
 
 import {Product} from "../Product/Product";
 import {Filters} from "../Filters/Filters";
@@ -35,7 +36,7 @@ const [filters, applyFitlers] = useState({minPrice: 9, maxPrice: 12});
              setProducts(data);
           })
           .catch((err) => {
-             console.log(err.message);
+             console.log(err.message); // sentry would be a better to handle error management
           });
     }, [filters]);
 
@@ -44,9 +45,9 @@ const [filters, applyFitlers] = useState({minPrice: 9, maxPrice: 12});
             <div style={styles.container}>
                 <Filters applyFitlers={applyFitlers} /> 
                 <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                <div  style={styles.title}>
-                Wine list
-                </div>
+                <Typography variant="h4" sx={{   marginLeft: '13px',
+    marginTop: '7px' }}>{'Wine List'}</Typography>
+
                     {products.map((item) => (
                         <Product key={item.name} product={item} />
                         ))}

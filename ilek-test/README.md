@@ -10,6 +10,7 @@ This is the README for the technical test written by Pierre Vinarnick for Ilek.
 * add prettier
 * add typescript
 * add more test (mock API calls ...)
+* add sentry to monitore front errors
 * decide and enforce a better way of styling (scss ? styled components ?)
 * probably refacto everything when the new setup enforces better code...
 
