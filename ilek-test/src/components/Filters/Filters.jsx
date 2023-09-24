@@ -44,6 +44,7 @@ export const Filters = ({ applyFitlers }) => {
                     label="Amount"
                     onChange={e => setMinPrice(e.target.value)}
                     defaultValue={minPrice}
+                    data-testid="input-minPrice"
                     />
                 </FormControl>
                 <FormControl fullWidth sx={{ m: 1 }}>
@@ -54,6 +55,7 @@ export const Filters = ({ applyFitlers }) => {
                     label="Amount"
                     onChange={e => setMaxPrice(e.target.value)}
                     defaultValue={maxPrice}
+                    data-testid="input-maxPrice"
                     />
                 </FormControl>
             </div>

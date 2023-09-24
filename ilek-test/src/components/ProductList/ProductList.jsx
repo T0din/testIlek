@@ -40,7 +40,7 @@ const [filters, applyFitlers] = useState({minPrice: 9, maxPrice: 12});
           });
     }, [filters]);
 
-  return (
+    return (
         <div style={styles.produtListSuperContainer}>
             <div style={styles.container}>
                 <Filters applyFitlers={applyFitlers} /> 
